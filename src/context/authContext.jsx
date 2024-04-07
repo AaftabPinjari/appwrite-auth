@@ -1,25 +1,74 @@
 /* eslint-disable react/prop-types */
-import { useContext, createContext, useState } from "react";
+import { useContext, createContext, useState, useEffect } from "react";
 import { account } from '../appwrite/appwriteAuth'
 import { ID } from "appwrite";
+import { useNavigate } from "react-router";
 
 const authContext = createContext()
 
 export default function AuthProvider({ children }) {
+    const navigate = useNavigate()
 
     const [loading, setLoading] = useState(true)
     const [user, setUser] = useState(null)
 
+    //login
     const loginUser = async (userInfo) => {
-        const response = await account.createEmailPasswordSession(userInfo.email, userInfo.password)
-        console.log(response)
+        setLoading(true)
+        try {
+            await account.createEmailPasswordSession(userInfo.email, userInfo.password)
+            // console.log(response);
+            let accountDetails = await account.get();
+            setUser(accountDetails)
+            navigate('/')
+        } catch (error) {
+            console.error(error)
+        }
+        setLoading(false)
     }
-    const logOutUser = () => { }
-    const registerUser = (userInfo) => { }
-    const getUser = (userInfo) => {
+
+    //logout
+    const logOutUser = async () => {
+        await account.deleteSession('current')
+        setUser(null)
+    }
+
+    //register
+    const registerUser = async (userInfo) => {
+        setLoading(true)
+
+        try {
+
+            await account.create(ID.unique(), userInfo.email, userInfo.password, userInfo.name);
+
+            await account.createEmailPasswordSession(userInfo.email, userInfo.password)
+            let accountDetails = await account.get();
+            setUser(accountDetails)
+            navigate('/')
+        } catch (error) {
+            console.error(error)
+        }
+
+        setLoading(false)
 
     }
 
+
+    //get status
+    const getUser = async () => {
+        setLoading(true)
+        try {
+            let accountDetails = await account.get();
+            setUser(accountDetails)
+        } catch (error) {
+            console.error(error)
+        }
+        setLoading(false)
+    }
+
+    useEffect(() => {
+        getUser()
+    }, [])
 
 
 
@@ -31,7 +80,7 @@ export default function AuthProvider({ children }) {
     }
     return (
         <authContext.Provider value={contextData}>
-            {children}
+            {loading ? <p>Loading...</p> : children}
         </authContext.Provider>
     )
 }

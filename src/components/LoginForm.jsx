@@ -39,7 +39,7 @@ function LoginForm() {
                 placeholder="Enter your Password"
             />
             <button
-                className='text-white bg-gradient-to-tr from-blue-700 to-teal-300 px-8 py-2 rounded-lg mb-4 self-center'
+                className='text-white bg-[#35262e] px-8 py-2 rounded-lg mb-4 self-center'
                 type="submit">Login</button>
         </form>
     )

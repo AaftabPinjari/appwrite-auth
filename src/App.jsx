@@ -10,7 +10,7 @@ import FormPage from "./pages/FormPage"
 function App() {
 
   return (
-    <main className="bg-gradient-to-tr from-blue-700 to-teal-300 min-h-screen ">
+    <main className="bg-[#f5e7c8] text-[#35262e] min-h-screen ">
       <AuthProvider>
         {/**/}
         <Header />

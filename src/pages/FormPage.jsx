@@ -35,7 +35,7 @@ function FormPage() {
                         tabs.map((tab, idx) => (
                             <button
                                 onClick={() => getcurrIndex(idx)}
-                                className={`${currIndex === idx ? "text-white bg-gradient-to-tr from-blue-700 to-teal-300" : "bg-white"}
+                                className={`${currIndex === idx ? "text-white bg-[#35262e]" : "bg-white"}
                                 font-semibold px-8 py-2 rounded-lg  
                                 `}
                                 key={idx}>{tab.title}</button>

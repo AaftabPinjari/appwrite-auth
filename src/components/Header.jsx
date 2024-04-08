@@ -14,7 +14,7 @@ function Header() {
                 <ul className='flex items-center justify-between p-2'>
                     <li>
                         <Link to="/" className="">
-                            <img src='../../public/logo.png' className='w-32 ' />
+                            <img src='/logo.png' className='w-24 md:w-32 ' />
                         </Link>
                     </li>
                     <li>

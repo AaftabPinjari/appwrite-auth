@@ -3,20 +3,20 @@ import HomePage from "./pages/HomePage"
 import ProtectedRoutes from "./utils/ProtectedRoutes"
 import ErrorPage from "./pages/ErrorPage"
 import ProfilePage from "./pages/ProfilePage"
-import RegisterPage from "./pages/RegisterPage"
 import AuthProvider from "./context/authContext"
-import LoginPage from "./pages/LoginPage"
 import Header from "./components/Header"
+import FormPage from "./pages/FormPage"
 
 function App() {
+
   return (
-    <>
+    <main className="bg-gradient-to-tr from-blue-700 to-teal-300 min-h-screen ">
       <AuthProvider>
+        {/**/}
         <Header />
         <Routes>
           <Route path="/*" element={<ErrorPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/form" element={<FormPage />} />
           <Route element={<ProtectedRoutes />}>
             <Route path="/" element={<HomePage />} />
             <Route path="/profile" element={<ProfilePage />} />
@@ -24,7 +24,7 @@ function App() {
         </Routes>
       </AuthProvider>
 
-    </>
+    </main>
   )
 }
 

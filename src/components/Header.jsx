@@ -9,26 +9,25 @@ function Header() {
     }
     return (
         user ?
-            <nav className='h-[10vh] shadow-lg '>
+            <nav className='h-[10vh] '>
                 <ul className='flex justify-evenly items-center py-2'>
                     <li>
-                        <Link to="/" className="header--link">Home</Link>
+                        <Link to="/" className="">{user.name}</Link>
                     </li>
                     <li>
-                        <Link to="/profile" className="header--link">Profile</Link>
+                        <Link to="/" className="">Home</Link>
+                    </li>
+                    <li>
+                        <Link to="/profile" className="">Profile</Link>
                     </li>
                     <li>
                         <button
-                            className='bg-white rounded-lg text-black font-semibold text-xl px-2 py-1'
+                            className=' text-black font-semibold  '
                             onClick={logOut}>Logout</button>
                     </li>
                 </ul>
             </nav> :
-            <nav className='py-2 shadow-lg flex items-center justify-center h-[10vh]'>
-                <Link
-                    className='bg-white rounded-lg text-black font-semibold text-xl px-2 py-1'
-                    to="/login">Login</Link>
-            </nav>
+            null
     )
 }
 

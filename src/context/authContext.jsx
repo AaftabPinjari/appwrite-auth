@@ -11,6 +11,7 @@ export default function AuthProvider({ children }) {
 
     const [loading, setLoading] = useState(true)
     const [user, setUser] = useState(null)
+    const [error, setError] = useState(null)
 
     //login
     const loginUser = async (userInfo) => {
@@ -23,6 +24,7 @@ export default function AuthProvider({ children }) {
             navigate('/')
         } catch (error) {
             console.error(error)
+            setError(error)
         }
         setLoading(false)
     }
@@ -46,6 +48,7 @@ export default function AuthProvider({ children }) {
             setUser(accountDetails)
             navigate('/')
         } catch (error) {
+            setError(error)
             console.error(error)
         }
 
@@ -61,6 +64,7 @@ export default function AuthProvider({ children }) {
             let accountDetails = await account.get();
             setUser(accountDetails)
         } catch (error) {
+            setError(error)
             console.error(error)
         }
         setLoading(false)
@@ -77,6 +81,7 @@ export default function AuthProvider({ children }) {
         loginUser,
         logOutUser,
         registerUser,
+        error
     }
     return (
         <authContext.Provider value={contextData}>

@@ -9,6 +9,7 @@ import FormPage from "./pages/FormPage"
 import CreatePage from "./pages/CreatePage"
 import { BlogsProvider } from "./context/blogsContext"
 import FeedPage from "./pages/FeedPage"
+import BlogPage from "./pages/BlogPage"
 
 function App() {
 
@@ -26,6 +27,8 @@ function App() {
               <Route path="/profile" element={<ProfilePage />} />
               <Route path="/create" element={<CreatePage />} />
               <Route path="/feed" element={<FeedPage />} />
+              <Route path="/blog/:id" element={<BlogPage />} />
+
             </Route>
           </Routes>
         </BlogsProvider>

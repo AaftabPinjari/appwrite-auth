@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { databases } from "../appwrite/appwriteDB";
-import { ID, Query } from "appwrite";
+import { ID } from "appwrite";
 import { useNavigate } from "react-router";
 
 export const IDEAS_DATABASE_ID = import.meta.env.VITE_APPWRITE_DATABASEID; // Replace with your database ID
@@ -25,6 +25,7 @@ export function BlogsProvider({ children }) {
             blog
         );
         setBlogs((blogs) => [response, ...blogs].slice(0, 10));
+        await init()
         navigate('/feed')
     }
 
@@ -40,7 +41,7 @@ export function BlogsProvider({ children }) {
             IDEAS_COLLECTION_ID,
         );
         setBlogs(response.documents);
-        [Query.orderDesc("$createdAt"), Query.limit(10)]
+        // [Query.orderDesc("$createdAt"), Query.limit(10)]
     }
 
     useEffect(() => {

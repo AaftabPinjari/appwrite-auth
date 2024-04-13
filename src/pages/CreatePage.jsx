@@ -11,7 +11,7 @@ function CreatePage() {
         e.preventDefault()
         const userId = user.$id
         const title = createForm.current.title.value
-        const slug = title.replace(" ", "-").toLowerCase()
+        const slug = title.replace(/ /g, '-').toLowerCase()
         const content = createForm.current.content.value
         const author = user.name
         const blog = { userId, title, slug, content, author }
@@ -36,7 +36,6 @@ function CreatePage() {
                 type='text'
                 placeholder='Enter content'
             />
-
             <button
                 className='text-white bg-[#35262e] px-4 py-1 rounded-lg  '
                 type='submit'>Submit</button>

@@ -10,8 +10,8 @@ function Header() {
     }
     return (
         user ?
-            <nav className='h-[10vh] text-xs md:text-lg font-semibold px-1'>
-                <ul className='flex gap-2 items-center justify-between py-2 '>
+            <nav className='h-[10vh] text-xs md:text-lg  font-semibold px-1 py-2'>
+                <ul className='flex gap-2 items-center justify-between'>
                     <li>
                         <Link to="/" className="">
                             <img src='/logo.png' className='w-24 xs:w-24 md:w-32 ' />
@@ -23,14 +23,13 @@ function Header() {
                     <li>
                         <Link to="/profile" className="">Profile</Link>
                     </li>
-                    <li className='flex items-center gap-1 border-[0.5px] border-[#35262e] px-3 rounded-full'>
-                        <FaPencil size={15} />
-                        <Link to="/create" className="">
-                            Write</Link>
+                    <li className='flex items-center  border-[0.5px] border-[#35262e] px-2  rounded-full'>
+                        <FaPencil className='mr-[2px]' size={12} />
+                        <Link to="/create" className="">Write</Link>
                     </li>
                     <li>
                         <button
-                            className='text-white bg-[#35262e] px-4 py-1 rounded-lg  '
+                            className='text-white bg-[#35262e] px-4 py-2 rounded-lg'
                             onClick={logOut}>Logout</button>
                     </li>
                 </ul>
@@ -39,4 +38,4 @@ function Header() {
     )
 }
 
-export default Header
+export default Header;

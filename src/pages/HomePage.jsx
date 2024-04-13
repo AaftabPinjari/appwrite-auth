@@ -4,7 +4,7 @@ function HomePage() {
     const { user } = useAuth()
     // console.log(user)
     return (
-        <section>
+        <section className="">
             Home
         </section>
     )

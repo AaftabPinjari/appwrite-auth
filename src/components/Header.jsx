@@ -10,8 +10,8 @@ function Header() {
     }
     return (
         user ?
-            <nav className='h-[10vh] xs:text-sm md:text-lg font-semibold '>
-                <ul className='flex items-center justify-between p-2'>
+            <nav className='h-[10vh] text-xs md:text-lg font-semibold px-1'>
+                <ul className='flex gap-2 items-center justify-between py-2 '>
                     <li>
                         <Link to="/" className="">
                             <img src='/logo.png' className='w-24 xs:w-24 md:w-32 ' />

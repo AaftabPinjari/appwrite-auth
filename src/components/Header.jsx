@@ -10,11 +10,11 @@ function Header() {
     }
     return (
         user ?
-            <nav className='h-[10vh] text-xs md:text-lg  font-semibold px-1 py-2'>
+            <nav className='h-[10vh] text-xs md:text-lg   font-semibold px-1 py-2'>
                 <ul className='flex gap-2 items-center justify-between'>
                     <li>
                         <Link to="/" className="">
-                            <img src='/logo.png' className='w-24 xs:w-24 md:w-32 ' />
+                            <h1 className='text-lg md:text-2xl font-serif font-bold text-[#35262e]' >HASHBLOG</h1>
                         </Link>
                     </li>
                     <li>
@@ -29,7 +29,7 @@ function Header() {
                     </li>
                     <li>
                         <button
-                            className='text-white bg-[#35262e] px-4 py-2 rounded-lg'
+                            className='text-white bg-[#35262e] px-3 py-1 rounded-lg'
                             onClick={logOut}>Logout</button>
                     </li>
                 </ul>

@@ -30,6 +30,7 @@ function FormPage() {
     return (
         !user ?
             <section className="flex flex-col items-center justify-center h-[90vh]">
+                <h1 className="text-lg md:text-xl font-bold mb-3">Welcome To HashBlog !</h1>
                 <div className="bg-white flex flex-col p-8  rounded-xl">
                     <div className="flex gap-2 ">{
                         tabs.map((tab, idx) => (
@@ -45,6 +46,7 @@ function FormPage() {
                         tabs[currIndex] && tabs[currIndex].content
                     }</div>
                 </div>
+                <h1 className="text-lg md:text-xl font-bold mt-3">A Project by [ Aaftab Pinjari ] </h1>
             </section> : <Navigate to="/" />
     )
 }

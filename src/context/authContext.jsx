@@ -11,6 +11,7 @@ export default function AuthProvider({ children }) {
 
     const [loading, setLoading] = useState(true)
     const [user, setUser] = useState(null)
+    const [followers, setFollowers] = useState(0)
     const [error, setError] = useState(null)
 
     //login

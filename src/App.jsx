@@ -10,7 +10,6 @@ import CreatePage from "./pages/CreatePage"
 import { BlogsProvider } from "./context/blogsContext"
 import FeedPage from "./pages/FeedPage"
 import BlogPage from "./pages/BlogPage"
-import { PexelsProvider } from "./context/pexelsContext"
 
 function App() {
 
@@ -18,22 +17,20 @@ function App() {
     <main className="bg-[#f5e7c8] text-[#35262e] min-h-screen ">
       <AuthProvider>
         <BlogsProvider>
-          <PexelsProvider>
-            {/**/}
-            <Header />
-            <Routes>
-              <Route path="/*" element={<ErrorPage />} />
-              <Route path="/form" element={<FormPage />} />
-              <Route element={<ProtectedRoutes />}>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/profile" element={<ProfilePage />} />
-                <Route path="/create" element={<CreatePage />} />
-                <Route path="/feed" element={<FeedPage />} />
-                <Route path="/blog/:id" element={<BlogPage />} />
+          {/**/}
+          <Header />
+          <Routes>
+            <Route path="/*" element={<ErrorPage />} />
+            <Route path="/form" element={<FormPage />} />
+            <Route element={<ProtectedRoutes />}>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/profile" element={<ProfilePage />} />
+              <Route path="/create" element={<CreatePage />} />
+              <Route path="/feed" element={<FeedPage />} />
+              <Route path="/blog/:id" element={<BlogPage />} />
 
-              </Route>
-            </Routes>
-          </PexelsProvider>
+            </Route>
+          </Routes>
         </BlogsProvider>
       </AuthProvider>
 
